@@ -1,0 +1,67 @@
+html, body
+    margin 0
+    padding 0
+    width 100%
+    font-family 'proxima nova'
+    overflow-x hidden
+
+*
+    box-sizing border-box
+
+html
+    height 100%
+body
+    min-height 100%
+
+.container
+    padding 0 10px
+
+.site-wrapper
+    width 100%
+    min-height 100%
+    position relative
+
+.sidebar
+    background #ddd
+    width 250px
+    height 100%
+    float left
+    position fixed
+
+.main-content
+    color white
+    width calc(100% - 250px)
+    height 100%
+    float left
+    position relative
+    left 250px
+    box-sizing border-box
+
+.content-title
+    background blue
+    margin-top 0
+    margin-bottom 0.5em
+    padding 0.5em
+
+.signout
+    cursor pointer
+
+.content
+    text-align center
+    transition all 200ms ease-out
+    button
+        cursor pointer
+        border none
+        outline none
+        border-radius 5px
+        font-family 'proxima nova'
+        font-weight 100
+        text-transform uppercase
+        font-size 1em
+        letter-spacing 0.05em
+        color white
+        background #666
+        padding 15px 40px
+        &:hover
+            background #888
+            transition all 200ms ease-out
