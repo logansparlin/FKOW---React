@@ -9,7 +9,7 @@ App = React.createClass({
 					<Nav />
 				</div>
 				<div className="main-content">
-					{this.props.content}
+					{this.props.content}content
 				</div>
 			</div>
 		)
