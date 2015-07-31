@@ -5,6 +5,7 @@ FlowRouter.route('/', {
 		this.register('users', subs.subscribe('users'));
 	},
 	action: function() {
+		document.title = "FKOW | React"
 		ReactLayout.render(App, {
 			content: <Page title='heritage-history' />
 		})

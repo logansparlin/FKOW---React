@@ -43,8 +43,10 @@ Login = React.createClass({
             <div>
                 <h2 className="user-name">Hey, {this.data.currentUser.profile.firstName}</h2>
     		    <h3>Level | {this.data.currentUser.profile.level}</h3>
+                <h2>Points | {this.data.currentUser.profile.progress}</h2>
 
     		    <span className="signout" onClick={this.signOut}>Sign Out</span>
+                <Progress />
             </div>
         )
     },
