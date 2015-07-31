@@ -7,7 +7,7 @@ FlowRouter.route('/', {
 	action: function() {
 		document.title = "FKOW | React"
 		ReactLayout.render(App, {
-			content: <Page title='heritage-history' />
+			content: <LandingPage />
 		})
 	}
 });
