@@ -4,6 +4,7 @@ FlowRouter.route('/', {
 	subscriptions: function() {
 		this.register('users', subs.subscribe('users'));
 	},
+	triggersEnter:[createBlankUser],
 	action: function() {
 		document.title = "FKOW | React"
 		ReactLayout.render(App, {
@@ -38,5 +39,21 @@ function getPermissions(context) {
 	if(! _.contains(access, user_level) ) {
 		FlowRouter.redirect('/');
 		alert('access denied')
+	}
+}
+
+function createBlankUser(context){
+
+	if(!Meteor.userId()){
+		Meteor.call('createNewUserAndLogin', function(err, response){
+				if(err){
+					console.log('nope')
+				}else{
+					console.log(response.user)
+					Meteor.loginWithPassword(response.user, response.password,function(error){
+						console.log(error)
+					})
+				}
+		})
 	}
 }

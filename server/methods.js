@@ -14,5 +14,15 @@ Meteor.methods({
         } else {
             Meteor.users.update({_id: userId}, {$set: {'profile.progress': 0}})
         }
+    },
+    createNewUserAndLogin:function(){
+      var randomName = Random.hexString(5)
+      var randomSecret = Random.secret()
+      var newUser = Accounts.createUser({username: randomName, password: randomSecret, profile:{'firstName':'John','lastName':'Doe','level':'rookie'}})
+      return ({
+        user: randomName,
+        password: randomSecret
+      })
+
     }
 })

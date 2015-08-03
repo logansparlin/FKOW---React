@@ -30,11 +30,15 @@ Login = React.createClass({
 
     renderForm() {
         return (
-            <form autoComplete="on" onSubmit={this.formSubmit}>
-    			<input type="email" className="login-email" placeholder="Email" />
-    			<input type="password" className="login-password" placeholder="Password" />
-    			<button className="login-button">Login</button>
-    		</form>
+          <div>
+          <form autoComplete="on" onSubmit={this.formSubmit}>
+        			<input type="email" className="login-email" placeholder="Email" />
+        			<input type="password" className="login-password" placeholder="Password" />
+        			<button className="login-button">Login</button>
+    		  </form>
+
+          </div>
+
         )
     },
 
@@ -46,7 +50,7 @@ Login = React.createClass({
                 <h2>Points | {this.data.currentUser.profile.progress}</h2>
 
     		    <span className="signout" onClick={this.signOut}>Sign Out</span>
-                <Progress />
+              <Progress /> 
             </div>
         )
     },
@@ -55,7 +59,7 @@ Login = React.createClass({
         if(this.data.currentUser) {
             return ( this.renderUser() )
         } else {
-            return( this.renderForm() )
+            return( this.renderForm())
         }
     }
 })
