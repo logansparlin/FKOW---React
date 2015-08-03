@@ -10,7 +10,7 @@ Page = React.createClass({
     },
 
     giveUserPoints() {
-        Meteor.call('giveUserPoints', this.data.page.totalPoints)
+        Meteor.call('giveUserPoints', this.data.page.random_id )
     },
 
     resetPoints() {
@@ -18,7 +18,6 @@ Page = React.createClass({
     },
 
     getContent() {
-        console.log(this.data.page.id)
         return (
             <div>
                 <h1 className="content-title container">{this.data.page.name}</h1>
