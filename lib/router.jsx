@@ -6,7 +6,9 @@ FlowRouter.route('/', {
 	},
 	triggersEnter:[createBlankUser],
 	action: function() {
-		document.title = "FKOW | React"
+		if(Meteor.isClient) {
+			document.title = "FKOW | React"
+		}
 		ReactLayout.render(App, {
 			content: <LandingPage />
 		})
@@ -17,7 +19,7 @@ FlowRouter.route('/:page', {
 	name: 'post',
 	subscriptions: function() {
 		this.register('pages', subs.subscribe('pages'));
-		this.register('users', subs.subscribe('users'));
+		// this.register('users', subs.subscribe('users'));
 	},
 	triggersEnter: [getPermissions],
 	action: function(params) {
@@ -31,7 +33,7 @@ function getPermissions(context) {
 	var page = context.params.page,
 		access = PAGES[page].access,
 		user_level;
-	if(Meteor.userId()) {
+	if(Meteor.user()) {
 		user_level = Meteor.user().profile.level;
 	} else {
 		user_level = 'fan'

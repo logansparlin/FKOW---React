@@ -18,6 +18,7 @@ Page = React.createClass({
     },
 
     getContent() {
+        console.log(this.data.page.id)
         return (
             <div>
                 <h1 className="content-title container">{this.data.page.name}</h1>
