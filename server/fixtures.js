@@ -1,6 +1,7 @@
 if(Pages.find().count() === 0) {
 	Pages.insert({
-		'id':1,
+		'order':1,
+		'random_id': Random.id(),
 		'name':'Heritage / History',
 		'slug':'heritage-history',
 		'allowedAccess': [ 'fan', 'rookie', 'pro', 'mvp', 'king' ],
@@ -8,7 +9,8 @@ if(Pages.find().count() === 0) {
 		'totalPoints': 100
 	});
 	Pages.insert({
-		'id':2,
+		'order':2,
+		'random_id': Random.id(),
 		'name':'Wing Popularity',
 		'slug':'wing-popularity',
 		'allowedAccess': [ 'fan', 'rookie', 'pro', 'mvp', 'king' ],
@@ -16,7 +18,8 @@ if(Pages.find().count() === 0) {
 		'totalPoints': 50
 	});
 	Pages.insert({
-		'id':3,
+		'order':3,
+		'random_id': Random.id(),
 		'name':'Wing Decider',
 		'slug':'wing-decider',
 		'allowedAccess': [ 'fan', 'rookie', 'pro', 'mvp', 'king' ],
@@ -24,7 +27,8 @@ if(Pages.find().count() === 0) {
 		'totalPoints': 150
 	});
 	Pages.insert({
-		'id':4,
+		'order':4,
+		'random_id': Random.id(),
 		'name':'Wing Prep',
 		'slug':'wing-prep',
 		'allowedAccess': [ 'fan', 'rookie', 'pro', 'mvp', 'king' ],
@@ -32,7 +36,8 @@ if(Pages.find().count() === 0) {
 		'totalPoints': 100
 	});
 	Pages.insert({
-		'id':5,
+		'order':5,
+		'random_id': Random.id(),
 		'name':'Flavor Tool',
 		'slug':'flavor-tool',
 		'allowedAccess': [ 'pro', 'mvp', 'king' ],

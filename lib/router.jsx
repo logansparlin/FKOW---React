@@ -1,27 +1,26 @@
 var subs = new SubsManager();
 
 FlowRouter.route('/', {
-	name:'home',
-	subscriptions: function() {
-		this.register('users', subs.subscribe('users'));
-	},
-
+	// subscriptions: function() {
+	// 	this.register('users', subs.subscribe('users'));
+	// },
+	triggersEnter:[createBlankUser],
 	action: function() {
-		if(Meteor.isClient){
+		if(Meteor.isClient) {
 			document.title = "FKOW | React"
 		}
-
-		ReactLayout.render(Welcome, {
-
+		ReactLayout.render(App, {
+			content: <LandingPage />
 		})
 	}
 });
 
 FlowRouter.route('/:page', {
 	name: 'post',
-	subscriptions: function() {
+	subscriptions: function(params) {
+		var pageSlug = params.page;
 		this.register('pages', subs.subscribe('pages'));
-		this.register('users', subs.subscribe('users'));
+		// this.register('users', subs.subscribe('users'));
 	},
 	triggersEnter: [checkIfLoggedIn],
 	action: function(params) {

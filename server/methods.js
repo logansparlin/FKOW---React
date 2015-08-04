@@ -1,10 +1,23 @@
 Meteor.methods({
-    giveUserPoints: function(points) {
+    giveUserPoints: function(page_id) {
+        var page = Pages.findOne({random_id: page_id})
         var userId = Meteor.userId()
         if ( ! userId ) {
-            throw new Meteor.Error("not-authorized");
+            throw new Meteor.Error('not-authorized');
+            return false;
+        } else if( !page ) {
+            console.log('error: no page matching that ID')
+            throw new Meteor.Error('no page matching that ID');
+            return false;
         } else {
-            Meteor.users.update({_id: userId}, {$inc: {'profile.progress': points}})
+            if(!page.completed) {
+                Meteor.users.update({_id: userId}, {$inc: {'profile.progress': page.totalPoints}})
+                Pages.update({random_id: page_id}, {$set: {completed: true}})
+                return true;
+            } else {
+                throw new Meteor.Error('This page has already been completed')
+                return false;
+            }
         }
     },
     resetPoints: function() {
@@ -13,6 +26,7 @@ Meteor.methods({
             throw new Meteor.Error("not-authorized");
         } else {
             Meteor.users.update({_id: userId}, {$set: {'profile.progress': 0}})
+            Pages.update({}, {$set: {completed: false}}, {multi: true})
         }
     },
     createNewUser:function(){
