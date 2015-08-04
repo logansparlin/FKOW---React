@@ -1,5 +1,6 @@
 Meteor.methods({
     giveUserPoints: function(page_id) {
+
         var page = Pages.findOne({random_id: page_id})
         var userId = Meteor.userId()
         if ( ! userId ) {

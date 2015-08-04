@@ -21,9 +21,19 @@ Page = React.createClass({
 
         var button;
         if(this.data.page.completed == true) {
-            button = <button key={this.data.page.id} id="completeSection" style={styles.completed}>Section Completed</button>
+            button = <button
+                        key={this.data.page.id}
+                        id="completeSection"
+                        style={styles.completed}>
+                        Section Completed
+                    </button>
         } else {
-            button = <button key={this.data.page.id} onClick={this.giveUserPoints} id="completeSection">Complete this section +{this.data.page.totalPoints}</button>
+            button = <button
+                        key={this.data.page.id}
+                        onClick={this.giveUserPoints}
+                        id="completeSection">
+                        Complete this section +{this.data.page.totalPoints}
+                    </button>
         }
         return (
             <div>
