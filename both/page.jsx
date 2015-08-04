@@ -46,6 +46,5 @@ Page = React.createClass({
 var styles = {
     completed: {
         backgroundColor: 'green',
-        transition: 'all 250ms ease-out'
     }
 }
