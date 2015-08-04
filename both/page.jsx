@@ -3,9 +3,9 @@ Page = React.createClass({
     mixins: [ReactMeteorData],
 
     getMeteorData() {
+        var handle = Meteor.subscribe('singlePage', this.props.title)
         var data = {};
         data.page = Pages.findOne({slug: this.props.title})
-
         return data;
     },
 
@@ -36,8 +36,21 @@ Page = React.createClass({
         )
     },
 
+    getLoading() {
+        function toUpperCase(str) {
+            return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+        }
+        var slug = this.props.title.replace('-', ' '),
+            name = toUpperCase(slug);
+        return (
+            <div>
+                <h1 className="content-title container">{this.props.title}</h1>
+            </div>
+        )
+    },
+
     render() {
-        return (this.data.page) ? this.getContent() : <div>Loading...</div>
+        return (this.data.page) ? this.getContent() : this.getLoading()
     }
 });
 

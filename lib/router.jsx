@@ -1,9 +1,9 @@
 var subs = new SubsManager();
 
 FlowRouter.route('/', {
-	subscriptions: function() {
-		this.register('users', subs.subscribe('users'));
-	},
+	// subscriptions: function() {
+	// 	this.register('users', subs.subscribe('users'));
+	// },
 	triggersEnter:[createBlankUser],
 	action: function() {
 		if(Meteor.isClient) {
@@ -17,7 +17,8 @@ FlowRouter.route('/', {
 
 FlowRouter.route('/:page', {
 	name: 'post',
-	subscriptions: function() {
+	subscriptions: function(params) {
+		var pageSlug = params.page;
 		this.register('pages', subs.subscribe('pages'));
 		// this.register('users', subs.subscribe('users'));
 	},

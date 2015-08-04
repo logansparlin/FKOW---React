@@ -1,5 +1,15 @@
 Meteor.publish('pages', function() {
-	return Pages.find({});
+	return Pages.find({}, {
+	    fields: {
+	        name: 1,
+	        slug: 1,
+			totalPoints: 1,
+			completed: 1
+	    },
+	    sort: {
+	        order: 1
+	    }
+	});
 });
 
 Meteor.publish('singlePage', function(slug) {
