@@ -4,7 +4,7 @@ App = React.createClass({
 		return (
 			<div className="site-wrapper">
 				<div className="sidebar">
-					<h1>FKOW | React</h1>
+					<h1><a href={FlowRouter.path('home')}>FKOW</a> | React</h1>
 					<Login />
 					<Nav />
 				</div>
