@@ -1,17 +1,15 @@
 var subs = new SubsManager();
 
 FlowRouter.route('/', {
+	name:'home',
 	// subscriptions: function() {
 	// 	this.register('users', subs.subscribe('users'));
 	// },
-	triggersEnter:[createBlankUser],
 	action: function() {
 		if(Meteor.isClient) {
 			document.title = "FKOW | React"
 		}
-		ReactLayout.render(App, {
-			content: <LandingPage />
-		})
+		ReactLayout.render(Welcome)
 	}
 });
 
