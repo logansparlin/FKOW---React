@@ -22,7 +22,7 @@ FlowRouter.route('/:page', {
 		this.register('pages', subs.subscribe('pages'));
 		// this.register('users', subs.subscribe('users'));
 	},
-	triggersEnter: [getPermissions],
+	// triggersEnter: [getPermissions],
 	action: function(params) {
 		ReactLayout.render(App, {
 			content: <Page title={params.page} />

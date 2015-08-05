@@ -31,7 +31,7 @@ Nav = React.createClass({
               {this.data.pages.map(function(page) {
                 return <li
                             key={page._id}
-                            onClick={that.routeHandler.bind(that, page.slug)}
+                            onClick={(page.slug !== that.data.route) ? that.routeHandler.bind(that, page.slug) : ''}
                             className={(page.slug === that.data.route) ? 'active' : ''}
                             >
                             <a>{page.name}</a>

@@ -37,7 +37,11 @@ Page = React.createClass({
         }
         return (
             <div>
-                <h1 className="content-title container">{this.data.page.name}</h1>
+                <h1 className="content-title container">
+                    <span className="title-inner">
+                        {this.data.page.name}
+                    </span>
+                </h1>
                 <div className="body">
                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
                         Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
