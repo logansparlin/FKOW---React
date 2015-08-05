@@ -26,6 +26,7 @@ Login = React.createClass({
     signOut() {
         console.log('logging out')
         Meteor.logout();
+        FlowRouter.go('/');
     },
 
     renderForm() {
@@ -50,7 +51,6 @@ Login = React.createClass({
                 <h2>Points | {this.data.currentUser.profile.progress}</h2>
 
     		    <span className="signout" onClick={this.signOut}>Sign Out</span>
-              <Progress /> 
             </div>
         )
     },

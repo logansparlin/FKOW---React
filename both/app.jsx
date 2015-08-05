@@ -23,8 +23,11 @@ App = React.createClass({
 		return (
 			<div className="site-wrapper">
 				<div className="sidebar">
-					<h1>FKOW | React</h1>
-					<Login />
+					<div className="dashboard-info">
+						<h1><a href={FlowRouter.path('home')}>FKOW</a> | React</h1>
+						<Login />
+					</div>
+					<Progress />
 					<Nav onClick={this.routeHandler} route={this.state.currentRoute}/>
 				</div>
 				<div className="main-content">
