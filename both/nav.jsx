@@ -5,6 +5,7 @@ Nav = React.createClass({
   getMeteorData() {
       var handle = Meteor.subscribe('pages');
       var data = {};
+      data.route = this.props.route;
       if(handle.ready()) {
           data.pages = Pages.find({}, {sort: {id: 1}}).fetch()
       }
@@ -12,12 +13,29 @@ Nav = React.createClass({
       return data;
   },
 
+  getInitialState() {
+      return {
+          transitioning: false
+      }
+  },
+
+  routeHandler(slug) {
+      this.props.onClick(slug)
+  },
+
   getContent() {
+      var that = this;
       return (
           <div className="main-div">
-            <ul>
+            <ul className="main-nav">
               {this.data.pages.map(function(page) {
-                return <li key={page._id}><a href={page.slug}>{page.name}</a></li>
+                return <li
+                            key={page._id}
+                            onClick={that.routeHandler.bind(that, page.slug)}
+                            className={(page.slug === that.data.route) ? 'active' : ''}
+                            >
+                            <a>{page.name}</a>
+                        </li>
               })}
             </ul>
           </div>

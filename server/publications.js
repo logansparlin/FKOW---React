@@ -12,6 +12,7 @@ Meteor.publish('pages', function() {
 	});
 });
 
+
 Meteor.publish('singlePage', function(slug) {
 	return Pages.find({slug: slug});
 });
