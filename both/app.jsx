@@ -10,10 +10,12 @@ App = React.createClass({
 
 	routeHandler(slug) {
 		this.setState({currentRoute: slug})
-        TweenMax.to($('.body'), 0.5, {opacity: 0, force3D: true, onComplete: fadeIn, ease: Quart.easeOut})
+        TweenMax.to($('.body'), 0.5, {y: -10, opacity: 0, force3D: true, onComplete: fadeIn, ease: Quart.easeOut})
+		TweenMax.to($('.title-inner'), 0.3, {opacity: 0, y: 20, force3D: true, ease: Quart.easeOut})
         function fadeIn() {
             FlowRouter.go('/' + slug)
-            TweenMax.to($('.body'), 0.5, {opacity: 1, ease: Quart.easeOut})
+            TweenMax.to($('.body'), 0.5, {y: 0, opacity: 1, ease: Quart.easeOut})
+			TweenMax.fromTo($('.title-inner'), 0.3, {opacity: 0, y: 20, force3D: true, ease: Quart.easeOut}, {y: 0, opacity: 1})
         }
     },
 
