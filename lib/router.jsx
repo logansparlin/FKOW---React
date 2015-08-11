@@ -48,9 +48,9 @@ function getPermissions(context) {
 function createBlankUser(context){
 
 	if(!Meteor.userId()){
-		Meteor.call('createNewUserAndLogin', function(err, response){
+		Meteor.call('createNewUser', function(err, response){
 				if(err){
-					console.log('nope')
+					console.log(err)
 				}else{
 					console.log(response.user)
 					Meteor.loginWithPassword(response.user, response.password,function(error){
