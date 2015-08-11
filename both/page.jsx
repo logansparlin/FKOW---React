@@ -19,7 +19,8 @@ Page = React.createClass({
 
     getContent() {
 
-        var button;
+        var button,
+            component = this.data.page.component;
         if(this.data.page.completed == true) {
             button = <button
                         key={this.data.page.id}

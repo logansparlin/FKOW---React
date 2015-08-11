@@ -20,7 +20,8 @@ Nav = React.createClass({
   },
 
   routeHandler(slug) {
-      this.props.onClick(slug)
+      Session.set('currentPage', slug)
+      this.props.onRoute(slug)
   },
 
   getContent() {
@@ -31,7 +32,7 @@ Nav = React.createClass({
               {this.data.pages.map(function(page) {
                 return <li
                             key={page._id}
-                            onClick={(page.slug !== that.data.route) ? that.routeHandler.bind(that, page.slug) : ''}
+                            onClick={(page.slug !== that.data.route) ? that.routeHandler.bind(null, page.slug) : ''}
                             className={(page.slug === that.data.route) ? 'active' : ''}
                             >
                             <a>{page.name}</a>

@@ -29,6 +29,22 @@ Login = React.createClass({
         FlowRouter.go('/');
     },
 
+    toggleButton() {
+        var that = this
+		if(!this.props.dashboard) {
+            var page = FlowRouter.current().params.page
+            Session.set('currentPage', page)
+            return (
+                <button onClick={this.props.toggleDashboard.bind(null, page)} className="admin-toggle">Open Dashboard</button>
+            )
+        } else {
+            var page = Session.get('currentPage')
+            return(
+                <button onClick={this.props.toggleDashboard} className="admin-toggle admin-close">Close Dashboard</button>
+            )
+        }
+	},
+
     renderForm() {
         return (
           <div>
@@ -48,7 +64,8 @@ Login = React.createClass({
             <div>
                 <h2 className="user-name">Hey, {this.data.currentUser.profile.firstName}</h2>
     		    <h3>Level | {this.data.currentUser.profile.level}</h3>
-                <h2>Points | {this.data.currentUser.profile.progress}</h2>
+                <h3>Points | {this.data.currentUser.profile.progress}</h3>
+                {this.toggleButton()}
 
     		    <span className="signout" onClick={this.signOut}>Sign Out</span>
             </div>
