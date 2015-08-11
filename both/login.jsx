@@ -73,6 +73,7 @@ Login = React.createClass({
     },
 
     render() {
+      
         if(this.data.currentUser) {
             return ( this.renderUser() )
         } else {
